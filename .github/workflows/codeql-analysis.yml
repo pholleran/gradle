@@ -64,7 +64,7 @@ jobs:
 
     - name: Compile with Gradle without Build Scan
       if: ${{ matrix.language == 'java' && github.repository_owner != 'gradle' }}
-      run: ./gradlew --init-script .github/workflows/codeql-analysis.init.gradle -S testClasses
+      run: ./gradlew --init-script .github/workflows/codeql-analysis.init.gradle -DcacheNode=us -S testClasses
 
     - name: Cleanup Gradle Daemons
       run: ./gradlew --stop
